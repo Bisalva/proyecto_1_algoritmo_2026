@@ -1,0 +1,7 @@
+.vscode/
+
+build/
+db/
+obj/
+plots/
+srcdb/
