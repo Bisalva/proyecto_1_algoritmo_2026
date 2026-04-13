@@ -10,6 +10,8 @@
 #define MAX_CHAR_EQUIPO 25
 #define NMS_EQUIPOS 10
 #define NMS_NOMBRES 30
+#define MAX_PUNTAJE_OBTENIBLE 101
+#define MAX_COMPETENCIAS 51
 //----
 
 // parametros limitantes
@@ -22,7 +24,7 @@ typedef struct {
     int id;
     char nombre[MAX_CHAR_NOMBRE];
     char equipo[MAX_CHAR_EQUIPO];
-    float puntaje;
+    int puntaje;
     int competencias;
 } Jugador;
 
