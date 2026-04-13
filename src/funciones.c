@@ -1,4 +1,4 @@
-#include "test.h"
+#include "componentes.h"
 
 // Nombre de equipos asignables
 const char *equipos[NMS_EQUIPOS] = 
