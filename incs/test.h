@@ -8,7 +8,7 @@
 // parametros de construccion
 #define MAX_CHAR_NOMBRE 25
 #define MAX_CHAR_EQUIPO 25
-#define NMS_EQUIPOS 10
+#define NMS_EQUIPOS 8
 #define NMS_NOMBRES 30
 #define MAX_PUNTAJE_OBTENIBLE 101
 #define MAX_COMPETENCIAS 51
@@ -39,4 +39,8 @@ void crear_csv();
 // Prototipos return
 int random_num(int n);
 char *crear_nombre();
+//----
+
+// Prototipos de Ordenamiento
+void fisher_yates(Jugador jugador[],int n);
 //----

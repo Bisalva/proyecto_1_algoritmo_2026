@@ -19,10 +19,16 @@ void crear_csv(){
 
         jugador[i].id = i;
         strcpy(jugador[i].nombre, temp);
-        strcpy(jugador[i].equipo, equipos[random_num(7)]);
+        strcpy(jugador[i].equipo, equipos[random_num(NMS_EQUIPOS)]);
         jugador[i].puntaje = random_num(MAX_PUNTAJE_OBTENIBLE);
         jugador[i].competencias = random_num(MAX_COMPETENCIAS);
 
+        free(temp);
+    }
+
+    fisher_yates(jugador,MAX_JUGADORES);
+
+    for(int i=0;i<MAX_JUGADORES;i++){
         // Guardar en CSV
         fprintf(file,
             "%d,%s,%s,%d,%d\n",
@@ -32,9 +38,6 @@ void crear_csv(){
             jugador[i].puntaje,
             jugador[i].competencias
         );
-
-        free(temp);
-
     }
 
     fclose(file);
