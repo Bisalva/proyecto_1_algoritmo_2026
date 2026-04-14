@@ -1,6 +1,6 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -Iincs
-SRC     = src/main.c src/deportistas.c src/ordenamiento.c src/busqueda.c src/menu.c
+SRC     = src/main.c src/deportistas.c src/ordenamiento.c src/busqueda.c src/menu.c src/experimento.c
 OBJ     = $(patsubst src/%.c, obj/%.o, $(SRC))
 TARGET  = build/sistema
 
