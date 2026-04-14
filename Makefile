@@ -1,50 +1,27 @@
-CC=gcc 
-EXEC=program.out
-EXECDB=programdb.out
-GRUPO=G1
-NTAR=2
+CC      = gcc
+CFLAGS  = -Wall -Wextra -Iincs
+SRC     = src/main.c src/deportistas.c src/ordenamiento.c src/busqueda.c src/menu.c src/experimento.c
+OBJ     = $(patsubst src/%.c, obj/%.o, $(SRC))
+TARGET  = build/sistema
 
-SRC_DIR=src
-SRCDB_DIR=srcdb
-OBJ_DIR=obj
-SRC_FILES=$(wildcard $(SRC_DIR)/*.c)
-SRCDB_FILES=$(wildcard $(SRCDB_DIR)/*.c)
-OBJ_FILES=$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
-OBJDB_FILES=$(patsubst $(SRCDB_DIR)/%.c,$(OBJ_DIR)/%_srcdb.o,$(SRCDB_FILES))
-INCLUDE=-I./incs/
-LIBS=
-LIBS= -lm
+.PHONY: all clean clean-db folders run
 
-CFLAGS=-Wall -Wextra -Wpedantic -O3
-LDFLAGS= -Wall -lm
+all: folders $(TARGET)
 
-all: $(OBJDB_FILES) $(OBJ_FILES)
-	$(CC) $(CFLAGS) -o build/$(EXEC) $(OBJ_FILES) $(INCLUDE) $(LIBS) $(LDFLAGS)
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c -o $@ $^ $(INCLUDE)
-
-$(OBJ_DIR)/%_srcdb.o: $(SRCDB_DIR)/%.c
-	$(CC) $(CFLAGS) -c -o $@ $^ $(INCLUDE)
-
-build/$(EXECDB): $(OBJDB_FILES)
-	$(CC) $(CFLAGS) -o build/$(EXECDB) $(OBJDB_FILES) $(INCLUDE) $(LIBS) $(LDFLAGS)
-
-.PHONY: clean folders send
-
-clean:
-	rm -f $(OBJ_FILES) $(OBJDB_FILES)
-	rm -f build/$(EXEC) build/$(EXECDB)
+obj/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 folders:
-	mkdir -p src srcdb obj incs build docs db
-	mkdir -p plots/binarysearch plots/bubblesort plots/comparatives plots/insertionsort plots/sequentialsearch plots/selectionsort
+	mkdir -p obj build db plots
 
-send:
-	tar czf $(GRUPO)-$(NTAR).tgz --transform 's,^,$(GRUPO)-$(NTAR)/,' Makefile src srcdb incs docs
+run: all
+	./$(TARGET)
 
-run: build/$(EXEC)
-	./build/$(EXEC)
+clean:
+	rm -rf obj build
 
-run-db: build/$(EXECDB)
-	./build/$(EXECDB)
+clean-db:
+	rm -rf db
