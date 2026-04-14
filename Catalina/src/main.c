@@ -76,6 +76,7 @@ int main(void) {
     //Lanzar menu interactivo 
     printf("\nPresiona Enter para entrar al menu...");
     getchar();
+    run_experimento();
     menu_principal(arr, &n);
 
     return 0;

@@ -43,6 +43,8 @@ int busqueda_binaria(Deportista *arr, int n, int id);
 //Declaraciones menu
 void menu_principal(Deportista *arr, int *n);
 
+void run_experimento(void);
+
 //Campos de ordenamiento 
 #define CAMPO_ID           0
 #define CAMPO_NOMBRE       1
