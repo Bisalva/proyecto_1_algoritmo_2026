@@ -4,7 +4,7 @@ int main(void) {
     srand(time(NULL));
 
     Deportista arr[MAX_DEPORTISTAS];
-    Deportista copia[MAX_DEPORTISTAS];
+    //Deportista copia[MAX_DEPORTISTAS]; -- TESTING
 
     //Generar y guardar varios tamaños 
     int tamanios[]   = {100, 500, 1000, 5000, 10000};
@@ -45,7 +45,7 @@ int main(void) {
         for (int i = 0; i < 10 && i < n; i++) imprimir_deportista(&copia[i]);
     } */
 
-    //Probar busqueda 
+    /*Probar busqueda
     printf("\n=== Prueba de Búsqueda ===\n");
     int id_buscar = arr[50].id;
     printf("Buscando ID %d...\n", id_buscar);
@@ -71,7 +71,7 @@ int main(void) {
     idx = busqueda_secuencial(arr, n, 9999);
     printf("Secuencial: %s\n", idx != -1 ? "encontrado" : "no encontrado");
     idx = busqueda_binaria(copia, n, 9999);
-    printf("Binaria:    %s\n", idx != -1 ? "encontrado" : "no encontrado");
+    printf("Binaria:    %s\n", idx != -1 ? "encontrado" : "no encontrado");*/
 
     //Lanzar menu interactivo 
     printf("\nPresiona Enter para entrar al menu...");
