@@ -5,10 +5,10 @@ Repositorio dedicado al primer proyecto de Diseño de Algoritmos ~ UMAG 2026
 
 - Benjamin Sanhueza
 - Francisco Cartes
+- Catalina Viñas
 
+- **Lenguaje** : C.
+- **Makefile** : Entregado por Diseño de Algoritmos.
 
-**Lenguaje** : C.
-**Makefile** : Entregado por Diseño de Algoritmos.
-
-**Fecha de Entrega** : 15 de abril , 2026
-**Fecha de Defensa** : 17 de abril , 2026
+- **Fecha de Entrega** : 15 de abril , 2026
+- **Fecha de Defensa** : 17 de abril , 2026
